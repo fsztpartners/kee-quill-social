@@ -1,0 +1,44 @@
+{
+  "$comment": "keemakr Marketplace submission for the kee-quill-social agent. This is the EntrySubmission the platform's registerEntry() ingests (see keemakr-core src/lib/marketplace/types.ts). Installing it for a tenant creates the 'marketing' department + its single agent. It declares NO dependencies, so it installs instantly (no pending_deps step).",
+  "slug": "quill-social",
+  "display_name": "Quill Social",
+  "description": "Drafts on-brand social posts from a topic: a hook, a short body, and 2–3 hashtags, shaped by an optional tone. The instant-install Marketplace demo — one agent, one tool, zero dependencies.",
+  "category": "marketing",
+  "author": "keemakr",
+  "icon": "megaphone",
+  "visibility": "public",
+  "overview": "Quill Social turns a one-line topic into a ready-to-post social draft. Give it a subject — and optionally a tone like punchy, professional, playful, or inspirational — and it returns a complete post: an attention-grabbing hook, a short body that frames why the topic matters, and 2–3 relevant hashtags derived from your topic. The transform is fully deterministic and runs in-process, so there's nothing to connect and nothing to configure. It's the smallest end-to-end Marketplace entry that still does something genuinely useful.",
+  "operator": "Powered by the EVE Marketing operator runtime, Quill Social runs as a single remote eve root agent that the keemakr operator delegates to over HTTP. The operator routes a tenant's drafting request to the agent, which calls its one tool (draft_post) and relays the result. Authorization is handled by the eve channel (local dev, Vercel OIDC, or a shared-secret bearer token), so the operator can reach it across processes and deployments.",
+  "usage": "1. Install Quill Social from the Marketplace — it has zero dependencies, so it activates instantly. 2. Open the Marketing department and select the Content Writer agent. 3. Ask it to draft a post, e.g. \"draft a punchy post about shipping on Fridays\" (add a tone if you like: professional, playful, or inspirational). 4. Copy the returned hook, body, and hashtags into your social scheduler — Quill Social only drafts, it does not publish.",
+  "changelog": "Initial release — topic + tone → drafted social post (hook, body, hashtags).",
+  "dependencies": [],
+  "runtime": {
+    "kind": "eve",
+    "ref": "https://github.com/keemakrpartners/kee-quill-social",
+    "status": "declared"
+  },
+  "manifest": {
+    "department": {
+      "key": "marketing",
+      "label": "Marketing",
+      "description": "Content and campaign agents."
+    },
+    "agents": [
+      {
+        "key": "writer",
+        "display_name": "Content Writer",
+        "role": "Drafts posts",
+        "description": "Drafts on-brand social posts via the draft_post tool.",
+        "config": {
+          "tool": "draft_post"
+        }
+      }
+    ],
+    "meta": {
+      "eve_root_agent": "agent/agent.ts",
+      "tools": [
+        "draft_post"
+      ]
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "kee-quill-social",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A tiny eve agent that drafts on-brand social posts. The smallest possible keemakr Marketplace entry: one root agent, one tool, zero dependencies \u2014 instant install.",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev:eve": "eve dev",
+    "build:eve": "eve build",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "sync:entry": "node scripts/sync-entry.mjs",
+    "bundle": "rm -f quill-social.zip && zip -r -q quill-social.zip agent entry.json agent.toml package.json tsconfig.json eslint.config.mjs README.md .nvmrc -x '*/.DS_Store' && echo 'wrote quill-social.zip' && unzip -l quill-social.zip"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "4.0.0-beta.67",
+    "eve": "0.13.0",
+    "jose": "^6.2.3",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9",
+    "@types/node": "^20",
+    "eslint": "^9",
+    "smol-toml": "^1.7.0",
+    "typescript": "^5",
+    "typescript-eslint": "^8"
+  }
+}
