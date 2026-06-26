@@ -7,3 +7,6 @@ node_modules/
 
 # Build artifact produced by `npm run bundle` (regenerable; the marketplace stores it)
 quill-social.zip
+
+.DS_Store
+Archive.zip
