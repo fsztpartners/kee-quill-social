@@ -14,7 +14,7 @@
   "dependencies": [],
   "runtime": {
     "kind": "eve",
-    "ref": "https://github.com/keemakrpartners/kee-quill-social",
+    "ref": "https://github.com/fsztpartners/kee-quill-social",
     "status": "declared"
   },
   "manifest": {

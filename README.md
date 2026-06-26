@@ -9,6 +9,26 @@ It's the instant-install demo entry — small enough to read in a minute, with
 **zero dependencies**, so installing it for a tenant goes straight to
 `installed` with nothing to connect first.
 
+## How to use
+
+This agent is a **keemakr Marketplace entry**. You don't run it directly — you **install it for your tenant** from the keemakr Marketplace, then talk to it through the keemakr operator chat.
+
+**1. Install it.** Find **Quill Social** in the Marketplace and install it. Installing **Quill Social** for a tenant goes straight to `installed` — it declares no dependencies, so there's nothing to connect first.
+
+**2. Route to it with `@marketing`.** Once installed, the **Marketing** department is available in the operator chat. Mention it by its handle — **`@marketing`** — to route a request to its agents:
+
+| Agent key | Name | What it does |
+| --- | --- | --- |
+| `writer` | Content Writer | Drafts on-brand social posts via the draft_post tool. |
+
+**3. Ask it.** For example:
+
+> @marketing draft a punchy post about shipping on Fridays
+
+You'll get back a hook, a short body, and 2–3 hashtags.
+
+> Connecting external services or sending on your behalf always happens through the tenant connections you authorize at install — the agent reaches them via keemakr's capability proxy and never sees your raw credentials.
+
 ## What's here
 
 | Path | What it is |
